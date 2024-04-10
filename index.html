@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Google Drive Link Converter</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button, textarea { display: block; margin-bottom: 10px; width: 100%; }
+    label { margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h2>Google Drive Image Link Converter</h2>
+
+<label for="driveLink">Paste Google Drive Share Link:</label>
+<input type="text" id="driveLink" placeholder="https://drive.google.com/file/d/.../view?usp=sharing">
+<button onclick="convertLink()">Convert Link</button>
+
+<label for="htmlOutput">HTML <img> Tag:</label>
+<textarea id="htmlOutput" rows="2" readonly></textarea>
+
+<label for="markdownOutput">Markdown Image Syntax:</label>
+<textarea id="markdownOutput" rows="2" readonly></textarea>
+
+<script>
+function convertLink() {
+    var inputLink = document.getElementById('driveLink').value;
+    var fileId = inputLink.split('/d/')[1].split('/')[0];
+    var directLink = 'https://drive.google.com/uc?export=view&id=' + fileId;
+
+    document.getElementById('htmlOutput').value = '<img src="' + directLink + '" alt="Image">';
+    document.getElementById('markdownOutput').value = '![Image](' + directLink + ')';
+}
+</script>
+
+</body>
+</html>
 
