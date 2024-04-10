@@ -1,1 +1,4 @@
+title: Sliverspells google image converter
+description: This converter will make a public link to your google drive photo, one for use with html and one for use with markdown. Simply copy your link in google, then paste it in here and press convert.
+
 theme: jekyll-theme-cayman
